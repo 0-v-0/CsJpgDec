@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Drawing;
@@ -7,7 +6,7 @@ using LibPixz.Colorspaces;
 
 namespace LibPixz
 {
-    internal class ImageDecoder
+	internal class ImageDecoder
     {
         const int blkSize = ImgInfo.blockSize; // JPEG decoding block size is 8x8
 
@@ -19,7 +18,7 @@ namespace LibPixz
         internal static Bitmap DecodeImage(BinaryReader reader, ImgInfo imgInfo)
         {
             // Used for reading those nasty variable length codes
-            BitReader bReader = new BitReader(reader);
+            var bReader = new BitReader(reader);
             float[][,] img = new float[imgInfo.numOfComponents][,];
 
             imgInfo.deltaDc = new short[imgInfo.numOfComponents];
@@ -76,13 +75,13 @@ namespace LibPixz
             }
             catch (Exception ex)
             {
-                Logger.WriteLine(ex.Message);
-                Logger.WriteLine(ex.StackTrace);
+                /*Logger.WriteLine(ex.Message);
+                Logger.WriteLine(ex.StackTrace);*/
             }
 
             Color2[,] imagen = MergeChannels(imgInfo, img);
-            Bitmap bmp = new Bitmap(imgInfo.width, imgInfo.height);
-            BmpData conv = new BmpData(bmp);
+            var bmp = new Bitmap(imgInfo.width, imgInfo.height);
+            var conv = new BmpData(bmp);
 
             bReader.StopReading();
             conv.SetImage(imagen);
@@ -133,7 +132,7 @@ namespace LibPixz
         /// <returns>A 2D array representing the color data from the image</returns>
         internal static Color2[,] MergeChannels(ImgInfo imgInfo, float[][,] imgS)
         {
-            Color2[,] img = new Color2[imgInfo.height, imgInfo.width];
+            var img = new Color2[imgInfo.height, imgInfo.width];
             IColorspaceConverter converter;
 
             if (imgInfo.app14MarkerFound)

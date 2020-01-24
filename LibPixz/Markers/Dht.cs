@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 
 namespace LibPixz.Markers
 {
-    internal struct HuffmanTable
+	internal struct HuffmanTable
     {
         public bool valid;
         public byte id;
@@ -22,11 +20,11 @@ namespace LibPixz.Markers
 
     class Dht : Marker
     {
-        static string name = "DHT";
+        //static string name = "DHT";
 
         public static void Read(BinaryReader reader, ImgInfo imgInfo)
         {
-            LogMarker(reader, name);
+            //LogMarker(reader, name);
             int markerLength = reader.ReadBEUInt16() - 2;
 
             while (markerLength > 0)
@@ -71,21 +69,7 @@ namespace LibPixz.Markers
             Huffman.CreateTable(ref huffmanTable);
 
             imgInfo.huffmanTables[huffmanTable.type, huffmanTable.id] = huffmanTable;
-
-            Log(reader, huffmanTable);
-
-            return 1 + 16 + numCodes;
-        }
-
-        static void Log(BinaryReader reader, HuffmanTable huffmanTable)
-        {
-            Logger.WriteLine("Table ID: " + huffmanTable.id);
-            Logger.WriteLine("Type: " + huffmanTable.type);
-            Logger.WriteLine("Max code length: " + huffmanTable.maxCodeLength);
-            Logger.WriteLine("The table itself");
-            Common.PrintHuffmanTable(huffmanTable.table);
-            Logger.WriteLine("Total: " + huffmanTable.table.Count);
-            Logger.WriteLine();
+			return 1 + 16 + numCodes;
         }
     }
 }

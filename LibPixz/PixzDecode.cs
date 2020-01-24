@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Drawing;
 using System.IO;
-using LibPixz.Colorspaces;
 using LibPixz.Markers;
 
 namespace LibPixz
 {
-    public partial class Pixz
+	public partial class Pixz
     {
         public enum Markers
         {
@@ -29,11 +26,8 @@ namespace LibPixz
 
         public static List<Bitmap> Decode(string path)
         {
-            MemoryStream stream = ReadFileToMemory(path);
-
-            Logger.WriteLine("Log for image: " + path);
-
-            return Pixz.Decode(stream);
+			//Logger.WriteLine("Log for image: " + path);
+			return Decode(ReadFileToMemory(path));
         }
 
         public static List<Bitmap> Decode(MemoryStream stream)
@@ -49,7 +43,7 @@ namespace LibPixz
             {
                 try
                 {
-                    ImgInfo imgInfo = new ImgInfo();
+                    var imgInfo = new ImgInfo();
 
                     while (true)
                     {
@@ -81,16 +75,16 @@ namespace LibPixz
                                 break;
                             case Markers.Soi:
                                 imgInfo = new ImgInfo();
-                                Logger.Write("Start of Image " + image);
-                                Logger.WriteLine(" at: " + (reader.BaseStream.Position - 2).ToString("X"));
+                                //Logger.Write("Start of Image " + image);
+                                //Logger.WriteLine(" at: " + (reader.BaseStream.Position - 2).ToString("X"));
                                 imgInfo.startOfImageFound = true;
                                 break;
                             case Markers.Dri:
                                 Dri.Read(reader, imgInfo);
                                 break;
                             case Markers.Eoi:
-                                Logger.Write("End of Image " + image);
-                                Logger.WriteLine(" at: " + (reader.BaseStream.Position - 2).ToString("X"));
+                                //Logger.Write("End of Image " + image);
+                                //Logger.WriteLine(" at: " + (reader.BaseStream.Position - 2).ToString("X"));
                                 eof = true;
                                 break;
                             // Unknown markers, or markers used outside of their specified area
@@ -112,19 +106,19 @@ namespace LibPixz
                 }
                 catch (Exception ex)
                 {
-                    Logger.WriteLine(ex.Message);
+                    //Logger.WriteLine(ex.Message);
                 }
             }
 
             reader.Close();
-            Logger.Flush();
+            //Logger.Flush();
 
             return images;
         }
 
         protected static MemoryStream ReadFileToMemory(string path)
         {
-            MemoryStream stream = new MemoryStream();
+            var stream = new MemoryStream();
             FileStream archivo = File.OpenRead(path);
 
             stream.SetLength(archivo.Length);

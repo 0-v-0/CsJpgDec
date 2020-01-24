@@ -1,15 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 
 namespace LibPixz
 {
-    /// <summary>
-    /// Restart marker-aware bit reader for JPEG decoding
-    /// </summary>
-    internal class BitReader
+	/// <summary>
+	/// Restart marker-aware bit reader for JPEG decoding
+	/// </summary>
+	internal class BitReader
     {
         const int dataSize = sizeof(ushort) * 8;
         const int readerSize = sizeof(byte) * 8;

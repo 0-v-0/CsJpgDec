@@ -1,11 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace LibPixz
 {
-    internal partial class ImgOps
+	internal partial class ImgOps
     {
         protected internal static short[,] Quant(float[,] pixDct, ushort[] matriz, int tam)
         {

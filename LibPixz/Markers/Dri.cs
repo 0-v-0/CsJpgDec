@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 
 namespace LibPixz.Markers
 {
-    class Dri : Marker
+	class Dri : Marker
     {
         public const int RestartMarkerPeriod = 8;
-        static string name = "DRI";
+        //static string name = "DRI";
 
         public static void Read(BinaryReader reader, ImgInfo imgInfo)
         {
-            LogMarker(reader, name);
+            //LogMarker(reader, name);
 
             int length = reader.ReadBEUInt16();
 
@@ -30,8 +27,8 @@ namespace LibPixz.Markers
 
         static void Log(BinaryReader reader, ushort restartInterval)
         {
-            Logger.WriteLine("Restart Marker Interval: " + restartInterval);
-            Logger.WriteLine();
+            //Logger.WriteLine("Restart Marker Interval: " + restartInterval);
+            //Logger.WriteLine();
         }
     }
 }

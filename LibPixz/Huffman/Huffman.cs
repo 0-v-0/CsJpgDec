@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using LibPixz.Markers;
 
 namespace LibPixz
 {
-    internal class Huffman
+	internal class Huffman
     {
         internal struct CodeInfo
         {
@@ -66,7 +65,7 @@ namespace LibPixz
 
                 for (uint j = 0; j < huffmanTable.numSymbols[i]; j++)
                 {
-                    CodeInfo code = new CodeInfo();
+                    var code = new CodeInfo();
                     int difLengths = (int)(codeLength - prevLength);
 
                     newCode = (newCode + 1) << difLengths;
@@ -112,7 +111,7 @@ namespace LibPixz
             int count = 40;
             var freqTable = new int[size];
 
-            Random rnd = new Random((int)DateTime.UtcNow.Ticks);
+            var rnd = new Random((int)DateTime.UtcNow.Ticks);
 
             for (int i = 0; i < size; i++)
             {

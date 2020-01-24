@@ -1,15 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
+﻿using System.IO;
 
 namespace LibPixz
 {
-    /// <summary>
-    /// Extensions for BinaryReader that enable reading big endian numbers,
-    /// </summary>
-    internal static class BinaryReaderEx
+	/// <summary>
+	/// Extensions for BinaryReader that enable reading big endian numbers,
+	/// </summary>
+	internal static class BinaryReaderEx
     {
         internal static ushort ReadBEUInt16(this BinaryReader reader)
         {

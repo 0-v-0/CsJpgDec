@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Drawing;
 
 namespace LibPixz.Colorspaces
 {
-    class Lab : IColorspaceConverter
+	class Lab : IColorspaceConverter
     {
         protected struct D65
         {

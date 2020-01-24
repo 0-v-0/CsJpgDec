@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using LibPixz.Markers;
+﻿using LibPixz.Markers;
 
 namespace LibPixz
 {
-    internal class ImgInfo
+	internal class ImgInfo
     {
         public ushort length;
         public byte dataPrecision;

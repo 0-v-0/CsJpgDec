@@ -1,19 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Drawing;
 
 namespace LibPixz
 {
-    public class FileOps
+	public class FileOps
     {
         protected internal static Dictionary<int, Point[]> tablasZigzag = new Dictionary<int, Point[]>()
         {
-            { 8, FileOps.GetZigzagTable(8, 8) },
-            { 16, FileOps.GetZigzagTable(16, 16) },
-            { 32, FileOps.GetZigzagTable(32, 32) },
-            { 64, FileOps.GetZigzagTable(64, 64) }
+            { 8, GetZigzagTable(8, 8) },
+            { 16, GetZigzagTable(16, 16) },
+            { 32, GetZigzagTable(32, 32) },
+            { 64, GetZigzagTable(64, 64) }
         };
 
         protected internal static Point[] GetZigzagTable(int width, int height)
@@ -21,7 +19,7 @@ namespace LibPixz
             if (width <= 0 || height <= 0)
                 throw new Exception("Block dimensions can't be less than zero");
 
-            Point[] tabla = new Point[height * width];
+            var tabla = new Point[height * width];
             int x = 0, y = 0;
             int pos = 0;
 

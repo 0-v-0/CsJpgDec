@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Drawing;
-
-namespace LibPixz.Colorspaces
+﻿namespace LibPixz.Colorspaces
 {
-    public class YCbCr : IColorspaceConverter
+	public class YCbCr : IColorspaceConverter
     {
         protected static float[,] mRgbYcbcr = 
         {

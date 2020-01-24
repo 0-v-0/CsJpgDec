@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 
 namespace LibPixz.Markers
 {
-    public struct QuantTable
+	public struct QuantTable
     {
         public bool valid;
         public byte id;
@@ -17,11 +14,11 @@ namespace LibPixz.Markers
 
     class Dqt : Marker
     {
-        static string name = "DQT";
+        //static string name = "DQT";
 
         public static void Read(BinaryReader reader, ImgInfo imgInfo)
         {
-            LogMarker(reader, name);
+            //LogMarker(reader, name);
             int markerLength = reader.ReadBEUInt16() - 2;
 
             while (markerLength > 0)
@@ -68,18 +65,18 @@ namespace LibPixz.Markers
 
             imgInfo.quantTables[tableId] = quantTable;
 
-            Log(reader, quantTable);
+            //Log(reader, quantTable);
 
             return 1 + 64 * sizeOfElement;
         }
 
-        static void Log(BinaryReader reader, QuantTable quantTable)
+        /*static void Log(BinaryReader reader, QuantTable quantTable)
         {
             Logger.WriteLine("Table ID: " + quantTable.id);
             Logger.WriteLine("Precision: " + quantTable.precision);
             Logger.WriteLine("The table itself");
             Common.PrintTable(quantTable.table, 8, 8, 4);
             Logger.WriteLine();
-        }
+        }*/
     }
 }

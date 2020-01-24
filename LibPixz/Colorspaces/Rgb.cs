@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace LibPixz.Colorspaces
+﻿namespace LibPixz.Colorspaces
 {
-    class Rgb : IColorspaceConverter
+	class Rgb : IColorspaceConverter
     {
         public Color2 ConvertToRgb(Info info)
         {

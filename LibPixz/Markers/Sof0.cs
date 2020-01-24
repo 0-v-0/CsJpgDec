@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 
 namespace LibPixz.Markers
 {
-    public struct ComponentInfo
+	public struct ComponentInfo
     {
         public byte id;
         public byte samplingFactorX;
@@ -18,11 +15,11 @@ namespace LibPixz.Markers
 
     class Sof0 : Marker
     {
-        static string name = "SOF0";
+        //static string name = "SOF0";
 
         public static void Read(BinaryReader reader, ImgInfo imgInfo)
         {
-            LogMarker(reader, name);
+            //LogMarker(reader, name);
 
             imgInfo.length = reader.ReadBEUInt16();
             imgInfo.dataPrecision = reader.ReadByte();
@@ -60,10 +57,10 @@ namespace LibPixz.Markers
                 imgInfo.components[i].quantTableId = reader.ReadByte();
             }
 
-            Log(reader, imgInfo);
+            //Log(reader, imgInfo);
         }
 
-        static void Log(BinaryReader reader, ImgInfo imgInfo)
+        /*static void Log(BinaryReader reader, ImgInfo imgInfo)
         {
             Logger.WriteLine("Length: " + imgInfo.length);
             Logger.WriteLine("Width: " + imgInfo.width + " Height: " + imgInfo.height);
@@ -81,6 +78,6 @@ namespace LibPixz.Markers
             }
 
             Logger.WriteLine();
-        }
+        }*/
     }
 }

@@ -1,19 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.IO;
 using System.Drawing;
 
 namespace LibPixz.Markers
 {
-    class Sos : Marker
+	class Sos : Marker
     {
-        static string name = "SOS";
+        //static string name = "SOS";
 
         public static Bitmap Read(BinaryReader reader, ImgInfo imgInfo)
         {
-            LogMarker(reader, name);
+            //LogMarker(reader, name);
 
             if (imgInfo.numOfComponents != 1 && imgInfo.numOfComponents != 3)
                 throw new Exception("Unsupported number of components (" + 

@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace LibPixz
+﻿namespace LibPixz
 {
-    class ArraySlice<T>
+	class ArraySlice<T>
     {
         private readonly T[,] arr;
         private int firstDimension;
@@ -18,7 +13,7 @@ namespace LibPixz
         public int FirstDimension
         {
             get { return firstDimension; }
-            set { this.firstDimension = value; }
+            set { firstDimension = value; }
         }
 
         public T this[int index]
